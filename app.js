@@ -22,8 +22,9 @@ app.get('/time', function (req, res) {
   res.send('Time queried!');
 });
 
-app.get('/command', function (req, res) {
+app.post('/command', function (req, res) {
   var command = req.body.command;
+  console.log('command: ' + command);
   exec("screen -S minecraft -X stuff '" + command + "\n'", puts);
   res.send(command + 'Executed!');
 });
