@@ -15,6 +15,6 @@ app.get('/time', function (req, res) {
   res.send('Time queried!');
 });
 
-app.listen(80, function () {
-  console.log('Example app listening on port 80!');
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
