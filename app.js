@@ -23,10 +23,15 @@ app.get('/time', function (req, res) {
 });
 
 app.post('/command', function (req, res) {
-  var command = req.body.command;
-  console.log('command: ' + command);
-  exec("screen -S minecraft -X stuff '" + command + "\n'", puts);
-  res.send(command + 'Executed!');
+  try {
+    var command = req.body.command;
+    console.log('command: ' + command);
+    exec("screen -S minecraft -X stuff '" + command + "\n'", puts);
+    res.send(command + 'Executed!');
+  } catch(e) {
+    console.log(e);
+    res.send(e);
+  }
 });
 
 app.listen(3000, function () {
